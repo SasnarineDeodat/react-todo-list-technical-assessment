@@ -1,7 +1,7 @@
 const App = () => {
   return (
     <div>
-      <h1>Todo List</h1>
+      <h1 className="text-4xl text-center"> Todo App</h1>
     </div>
   );
 };
