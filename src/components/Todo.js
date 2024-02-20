@@ -10,6 +10,10 @@ const Todo = () => {
     setTasks([...tasks, newTask]);
     setNewTask("");
   };
+
+  const deleteTask = (indexToDelete) => {
+    setTasks(tasks.filter((_, index) => index !== indexToDelete));
+  };
   return (
     <div className="h-screen bg-gray-900 text-white">
       <div className="container mx-auto max-w-xl pt-10 text-center">
@@ -31,12 +35,18 @@ const Todo = () => {
               className="bg-gray-100 text-gray-900 rounded mb-2 p-2"
             >
               {task}
+              <button
+                onClick={() => deleteTask(index)}
+                className="ml-4 py-0 bg-green-500 text-white rounded p-1 hover:bg-green-800 transition-colors duration-200"
+              >
+                Delete
+              </button>
             </li>
           ))}
         </ul>
         <button
           onClick={addTask}
-          className="p-2 bg-green-500 text-white rounded mt-4"
+          className="p-2 bg-green-500 hover:bg-green-800 transition-colors duration-200 text-white rounded mt-4"
         >
           Add Task
         </button>
