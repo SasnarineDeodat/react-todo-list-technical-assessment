@@ -1,7 +1,11 @@
+import HomePage from "./components/HomePage";
+import Todo from "./components/Todo";
+
 const App = () => {
   return (
     <div>
-      <h1 className="text-4xl text-center"> Todo App</h1>
+      <HomePage />
+      <Todo />
     </div>
   );
 };
