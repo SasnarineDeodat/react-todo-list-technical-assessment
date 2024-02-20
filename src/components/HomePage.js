@@ -9,7 +9,7 @@ const HomePage = () => {
       <p className="text-center text-xl md:text-2xl text-green-500 mt-4">
         Technical Interview
         <br />
-        <Link href="/todo">
+        <Link to="/todo">
           <button className="bg-green-500 text-white px-8 py-2 rounded hover:bg-green-800 transition-colors duration-200 mt-4">
             Go to To-Do List →
           </button>
