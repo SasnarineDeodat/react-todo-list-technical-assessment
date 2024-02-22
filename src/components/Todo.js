@@ -21,13 +21,13 @@ const Todo = () => {
     setTasks(tasks.filter((_, index) => index !== indexToDelete));
   };
   return (
-    <div className="h-screen bg-gray-900 text-white">
+    <div className="h-screen bg-gray-900">
       <div className="container mx-auto max-w-xl pt-10 text-center">
         <h1 className="text-3xl font-bold mb-5 text-green-500">To-Do List</h1>
         <div className="mb-4">
           <input
             type="text"
-            className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-500"
+            className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-800"
             placeholder="Add a new task"
             value={newTask}
             onChange={(e) => setNewTask(e.target.value)}
@@ -43,7 +43,7 @@ const Todo = () => {
               {task}
               <button
                 onClick={() => deleteTask(index)}
-                className="ml-4 py-0 bg-green-500 text-white rounded p-1 hover:bg-green-800 transition-colors duration-200"
+                className="ml-4 bg-green-500 text-gray-900 font-semibold rounded px-3 py-1 hover:bg-green-800 transition-colors duration-200"
               >
                 Delete
               </button>
@@ -52,12 +52,12 @@ const Todo = () => {
         </ul>
         <button
           onClick={addTask}
-          className="p-2 bg-green-500 hover:bg-green-800 transition-colors duration-200 text-white rounded mt-4"
+          className="px-8 p-2 bg-green-500 hover:bg-green-800 transition-colors duration-200 text-gray-900 font-semibold rounded mt-4"
         >
           Add Task
         </button>
         <Link to="/">
-          <button className="bg-green-500 text-white px-8 py-2 rounded hover:bg-green-800 transition-colors duration-200 mt-4 ml-4">
+          <button className="bg-green-500 text-gray-900 font-semibold px-8 py-2 rounded hover:bg-green-800 transition-colors duration-200 mt-4 ml-4">
             Back Home
           </button>
         </Link>
