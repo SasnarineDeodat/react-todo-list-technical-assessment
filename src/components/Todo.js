@@ -1,32 +1,25 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-// Functional component for the Todo List
 const Todo = () => {
-  // State to hold tasks, initializing from localStorage or empty array
   const [tasks, setTasks] = useState(
     JSON.parse(localStorage.getItem("tasks")) || [],
   );
 
-  // Effect to update localStorage whenever tasks state changes
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
+  const [newTask, setNewTask] = useState("");
 
-  const [newTask, setNewTask] = useState(""); // State for new task input
-
-  // Function to add a new task
   const addTask = () => {
-    if (!newTask.trim()) return; // Prevent adding empty tasks
-    setTasks([...tasks, newTask]); // Add new task to tasks array
-    setNewTask(""); // Reset input field
+    if (!newTask.trim()) return;
+    setTasks([...tasks, newTask]);
+    setNewTask("");
   };
 
-  // Function to delete a task
   const deleteTask = (indexToDelete) => {
-    setTasks(tasks.filter((_, index) => index !== indexToDelete)); // Remove task by index
+    setTasks(tasks.filter((_, index) => index !== indexToDelete));
   };
-
   return (
     <div className="h-screen bg-gray-900">
       <div className="container mx-auto max-w-xl pt-10 text-center">
@@ -37,8 +30,8 @@ const Todo = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-800"
             placeholder="Add a new task"
             value={newTask}
-            onChange={(e) => setNewTask(e.target.value)} // Update newTask state on change
-            onKeyPress={(e) => e.key === "Enter" && addTask()} // Add task on Enter key press
+            onChange={(e) => setNewTask(e.target.value)}
+            onKeyPress={(e) => e.key === "Enter" && addTask()}
           />
         </div>
         <ul>
@@ -49,7 +42,7 @@ const Todo = () => {
             >
               {task}
               <button
-                onClick={() => deleteTask(index)} // Delete task on click
+                onClick={() => deleteTask(index)}
                 className="ml-4 bg-green-500 text-gray-900 font-semibold rounded px-3 py-1 hover:bg-green-800 transition-colors duration-200"
               >
                 Delete
@@ -58,13 +51,12 @@ const Todo = () => {
           ))}
         </ul>
         <button
-          onClick={addTask} // Add task on click
+          onClick={addTask}
           className="px-8 p-2 bg-green-500 hover:bg-green-800 transition-colors duration-200 text-gray-900 font-semibold rounded mt-4"
         >
           Add Task
         </button>
         <Link to="/">
-          {/* Link to navigate back to the homepage */}
           <button className="bg-green-500 text-gray-900 font-semibold px-8 py-2 rounded hover:bg-green-800 transition-colors duration-200 mt-4 ml-4">
             Back Home
           </button>
