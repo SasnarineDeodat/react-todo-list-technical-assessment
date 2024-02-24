@@ -1,5 +1,4 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import "./App.css";
 import HomePage from "./components/HomePage";
 import Todo from "./components/Todo";
 
